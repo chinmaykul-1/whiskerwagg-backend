@@ -26,7 +26,7 @@ pipeline{
                     docker stop backend  || true
                     docker rm backend || true
                     docker run -p 8000:8000 --rm --name backend chinmaykulkarni19/whiskerwagg-backend
-                    EOF
+                    'EOF'
                     """
                 }
 
