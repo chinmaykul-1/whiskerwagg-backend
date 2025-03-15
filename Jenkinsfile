@@ -21,7 +21,7 @@ pipeline{
                     sh """
                     ssh -i ./test.pem $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_HUB_USER --password-stdin'
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     docker pull chinmaykulkarni19/whiskerwagg-backend
                     docker stop backend  || true
                     docker rm backend || true
