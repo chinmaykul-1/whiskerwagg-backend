@@ -27,7 +27,6 @@ pipeline{
                     sudo docker stop backend  || true
                     sudo docker rm backend || true
                     sudo docker run -d -p 8000:8000 --name backend chinmaykulkarni19/whiskerwagg-backend
-                    EOF
                     """
                 }
 
