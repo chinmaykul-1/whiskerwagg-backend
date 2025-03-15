@@ -21,12 +21,12 @@ pipeline{
                     sh """
                     ssh -i $SSH_KEY $EC2_HOST << EOF
                     echo "connected to ec2 node"
-                    sudo su -
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker pull chinmaykulkarni19/whiskerwagg-backend
-                    docker stop backend  || true
-                    docker rm backend || true
-                    docker run -d -p 8000:8000 --rm --name backend chinmaykulkarni19/whiskerwagg-backend
+                    
+                    sudo echo $DOCKER_PASS | sudo docker login -u $DOCKER_USER --password-stdin
+                    sudo docker pull chinmaykulkarni19/whiskerwagg-backend
+                    sudo docker stop backend  || true
+                    sudo docker rm backend || true
+                    sudo docker run -d -p 8000:8000 --name backend chinmaykulkarni19/whiskerwagg-backend
                     EOF
                     """
                 }
