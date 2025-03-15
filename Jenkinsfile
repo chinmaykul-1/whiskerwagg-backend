@@ -21,12 +21,12 @@ pipeline{
                     sh """
                     ssh -i $SSH_KEY $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                     docker pull chinmaykulkarni19/whiskerwagg-backend
                     docker stop backend  || true
                     docker rm backend || true
                     docker run -p 8000:8000 --rm --name backend chinmaykulkarni19/whiskerwagg-backend
-                    'EOF'
+                    EOF
                     """
                 }
 
