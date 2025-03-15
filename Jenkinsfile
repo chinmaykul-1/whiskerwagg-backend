@@ -19,7 +19,7 @@ pipeline{
                 usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')])
                 {
                     sh """
-                    ssh -i test.pem $EC2_HOST << 'EOF'
+                    ssh -i $SSH_KEY $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
                     echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     docker pull chinmaykulkarni19/whiskerwagg-backend
