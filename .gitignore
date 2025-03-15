@@ -1,2 +1,3 @@
 .env
 db.sqllite3
+test.pem
