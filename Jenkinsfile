@@ -21,6 +21,7 @@ pipeline{
                     sh """
                     ssh -i $SSH_KEY $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
+                    sudo su -
                     echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                     docker pull chinmaykulkarni19/whiskerwagg-backend
                     docker stop backend  || true
